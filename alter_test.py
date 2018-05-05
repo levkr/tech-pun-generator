@@ -19,40 +19,47 @@ temp_file_name = str(datetime.datetime.now()).replace(".","-").replace(" ","-").
 """starting_texts3 = "Variations of basketball are activities based on the game of basketball, using common basketball skills and equipment (primarily the ball and basket). Some variations are only superficial rules changes, while others are distinct games with varying degrees of basketball influences. Other variations include children's games, contests or activities meant to help players reinforce skills.".split(" ")"""
 
 """starting_texts4 = "The domestic cat is believed to have evolved from the Near Eastern wildcat, whose range covers vast portions of the Middle East westward to the Atlantic coast of Africa".split(" ")"""
-starting_texts5 = "A cyberattack is any type of offensive maneuver employed by nation-states, individuals, groups, society or organizations that targets computer information systems, infrastructures, computer networks, and or personal computer devices by various means of malicious acts usually originating from an anonymous source that either steals, alters, or destroys a specified target by hacking into a susceptible system.".split(" ")
+starting_texts5 = "hey-e-s ticipi stack udipi, reverse-engenring router switch arp forwarding routing system-call windows linux operating-system bit byte computer cookie ethernet fingerprint grep l-s script code jaavascript jaava pie-thon udp en-til-em r-s-hey".split(" ")
+
+def chooseOutput(output, original):
+	for choice in output:
+		if choice != original:
+			return choice
 
 def textToWav(text, wav_full_path, text_to_speech_path):
 	run_command = 'echo ' + text + ' | cscript "' + text_to_speech_path + '" -w ' + wav_full_path + ' -voice "Microsoft Zira Desktop"'
 	os.system(run_command)
 
 def wavToText(wav_path, output_full_path):
-    r = sr.Recognizer()
-    with sr.AudioFile(wav_path) as source:
-        audio = r.record(source)  # read the entire audio file
+	output = []
+	r = sr.Recognizer()
+	with sr.AudioFile(wav_path) as source:
+		audio = r.record(source)  # read the entire audio file
 
-    # recognize speech using Sphinx
-    try:
-        output = r.recognize_sphinx(audio)
-        print("Sphinx thinks you said: " + output)
-    except sr.UnknownValueError:
-        print("Sphinx could not understand audio")
-        return
-    except sr.RequestError as e:
-        print("Sphinx error; {0}".format(e))
-        return 
+	# recognize speech using Sphinx
+	try:
+		decoder = r.recognize_sphinx(audio, show_all=True)
+		#print ('Best 10 hypothesis: ')
+		for best, i in zip(decoder.nbest(), range(10)):
+			output.append(best.hypstr)
 
-    if output:
-        try:
-            file = open(output_full_path, "w")
-            file.write(output)
-            file.close()
-        except Exception as exc:
-            print "Exception while writing file: \n{0}".format(exc.message)
+		#output = decoder.hyp().hypstr
+		#print("Sphinx thinks you said: " + output)
+	except sr.UnknownValueError:
+		print("Sphinx could not understand audio")
+	except sr.RequestError as e:
+		print("Sphinx error; {0}".format(e))
+
+	return output	
 
 # main
+print "start!"
 temp_full_wav_path = os.path.join(temp_speech_path, temp_file_name + ".wav")
 for starting_text in starting_texts5:
 	textToWav(starting_text, temp_full_wav_path, text_to_speech_path)
-	noise_wav(temp_full_wav_path)
+	guassian_noise(temp_full_wav_path)
+	#noise_wav(temp_full_wav_path)
 	print("You said: " + starting_text)
-	wavToText(temp_full_wav_path, os.path.join(temp_speech_path, temp_file_name + ".txt"))
+	output = wavToText(temp_full_wav_path, os.path.join(temp_speech_path, temp_file_name + ".txt"))
+	output = chooseOutput(output, starting_text)
+	print("Sphinx thinks you said: ", output)
