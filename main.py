@@ -6,7 +6,7 @@ import nltk
 import pprint
 import time
 
-def joke(word):
+def joke(word, old_word):
 	searchedWord = word
 
 	temp_full_wav_path = os.path.join(temp_speech_path, temp_file_name + ".wav")
@@ -32,11 +32,16 @@ def joke(word):
 	raw = list(set(raw))
 
 	#pp.pprint(raw)
-	ranked = [(float([x for (_,x) in nltk.pos_tag(y.split())].count('NN'))/len([x for (_,x) in nltk.pos_tag(y.split())]),y) for y in raw ]
-	pp = pprint.PrettyPrinter(indent=4)
-	pp.pprint(sorted(ranked, key=lambda tup: abs(0.1-tup[0]))[:3])
+	ranked = [(float([x for (_,x) in nltk.pos_tag(y.split())].count('NN')) / len([x for (_,x) in nltk.pos_tag(y.split())]),y) for y in raw ]
+	ranked = [(rank[0], rank[1].replace(searchedWord, old_word)) for rank in ranked]
+	pp = pprint.PrettyPrinter(indent = 4)
+	pp.pprint(sorted(ranked, key = lambda tup: abs(0.1 - tup[0]))[:3])
+	#may add text to speech
 	
 words = "hey-e-s ticipi stack udipi, reverse-engenring router switch arp forwarding routing system-call windows linux operating-system bit byte computer cookie ethernet fingerprint grep l-s script code jaavascript jaava pie-thon udp en-til-em r-s-hey".split(" ")
 
+real_word = "AES"
 for word in words:
-	joke(word)
+	joke(word, real_word)
+	time.sleep(2)
+	break
