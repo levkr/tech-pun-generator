@@ -83,5 +83,4 @@ def createText(text):
 			sents = [regex.sub("([.!?]+$)", r" \1", sent) for sent in sent_tokenize(para.strip())]
 			final += " ".join(sents) + "\n"
 	
-	print "ended up with text of length",len(final)
-	return text
+	return text #or final?

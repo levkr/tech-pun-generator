@@ -1,0 +1,53 @@
+You said: hey-e-s
+Sphinx thinks you said: hey yes
+[   (0.1, ' now i can say hey yes i can do it.'),
+    (0.1111111111111111, ' we must go hey yes we must go hey.'),
+    (0.125, ' hey yes snake if he asks for fish.')]
+
+You said: ticipi
+Sphinx thinks you said: to fifty
+[   (   0.09090909090909091,
+        'hospital cases ranged from two to fifty six years the .'),
+    (   0.09090909090909091,
+        'from zero to fifty in eleven years the supreme court .'),
+    (0.1111111111111111, 'br new books similar to fifty shades of grey.')]
+
+ptts Version **UNSTABLE** (c) 2011 Peter G. Bennett
+You said: stack
+Sphinx thinks you said: stand
+[   (   0.14285714285714285,
+        ' mechanical techniques sit stand lift criteria procedure.'),
+    (0.14285714285714285, ' stand up victoria the university of .'),
+    (   0.16666666666666666,
+        ' after alfalfa breaks dormancy and begins to grow assessment of alfalfa stand conditions and yield potential in the spring is important to help determine.')]
+
+
+
+You said: router
+Sphinx thinks you said: well yes
+[   (   0.07692307692307693,
+        ' resident hears well yes no wears hearing aids both ears left right .'),
+    (0.125, 'come join us and just say well yes!'),
+    (0.14285714285714285, ' my windows doors work well yes no.')]
+
+
+ptts Version **UNSTABLE** (c) 2011 Peter G. Bennett
+You said: switch
+Sphinx thinks you said: the pledge
+[   (   0.09090909090909091,
+        ' that we would understand the pledges that go along with baptism.'),
+    (   0.15384615384615385,
+        ' you will have three years to demonstrate integration of the pledge provisions .'),
+    (   0.16666666666666666,
+        ' the aim of the pledge campaign is to encourage citizens to contact candidate meps and call on them to pledge that once in office they will work to defend the.')]
+
+
+ptts Version **UNSTABLE** (c) 2011 Peter G. Bennett
+You said: arp
+Sphinx thinks you said: five
+[   (   0.08333333333333333,
+        ' this report reflects the personal deliberations and discussions of the five presidents.'),
+    (   0.07692307692307693,
+        ' it consists of five components each of which is detailed on subsequent pages.'),
+    (   0.14285714285714285,
+        ' eascy five trends transforming the automotive indust.')]

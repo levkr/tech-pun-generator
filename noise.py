@@ -31,7 +31,7 @@ def guassian_noise(wav_file_path):
 	sample_rate, data = wavfile.read(wav_file_path)
 	data_list = data.tolist()
 	new_data_list = []
-	noise = np.random.normal(1500, 500, len(data_list))
+	noise = np.random.normal(1500, 300, len(data_list))
 	for i in range(len(data_list)):
 		new_data_list.append([(data_list[i][0] + noise[i]) % max_16, (data_list[i][1] + noise[i]) % max_16])
 
