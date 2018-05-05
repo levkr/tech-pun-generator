@@ -11,8 +11,8 @@ def joke(word):
 
 	temp_full_wav_path = os.path.join(temp_speech_path, temp_file_name + ".wav")
 	textToWav(searchedWord, temp_full_wav_path, text_to_speech_path)
-	#guassian_noise(temp_full_wav_path)
-	noise_wav(temp_full_wav_path)
+	guassian_noise(temp_full_wav_path)
+	#noise_wav(temp_full_wav_path)
 	print("You said: " + searchedWord)
 	words = wavToText(temp_full_wav_path, os.path.join(temp_speech_path, temp_file_name + ".txt"))
 	newWord  = chooseOutput(words, searchedWord)
