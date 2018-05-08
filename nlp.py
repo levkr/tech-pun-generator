@@ -27,7 +27,7 @@ def calculateParallel(func, numbers, threads=2):
 	return results	
 	
 def makeReq(i):
-	time.sleep(1)
+	#time.sleep(1)
 	bracetedRequest = "\""+searchedWord+"\" filetype:pdf"
 
 	site = "https://www.google.co.il/search?q=" + quote_plus(bracetedRequest) + "&start=" + str(i*10)
@@ -75,7 +75,7 @@ def createText(text):
 	text = regex.sub("[ ]{2,}", " ", text) # Squeeze spaces.
 	paras = text.split("\n")
 	
-	nltk.download('averaged_perceptron_tagger')
+	#nltk.download('averaged_perceptron_tagger')
 	#nltk.download('punkt')
 	final = ""
 	for para in paras:

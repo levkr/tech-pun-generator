@@ -19,8 +19,7 @@ temp_file_name = str(datetime.datetime.now()).replace(".","-").replace(" ","-").
 """starting_texts3 = "Variations of basketball are activities based on the game of basketball, using common basketball skills and equipment (primarily the ball and basket). Some variations are only superficial rules changes, while others are distinct games with varying degrees of basketball influences. Other variations include children's games, contests or activities meant to help players reinforce skills.".split(" ")"""
 
 """starting_texts4 = "The domestic cat is believed to have evolved from the Near Eastern wildcat, whose range covers vast portions of the Middle East westward to the Atlantic coast of Africa".split(" ")"""
-starting_texts5 = "hey-e-s ticipi stack udipi, reverse-engenring router switch arp forwarding routing system-call windows linux operating-system bit byte computer cookie ethernet fingerprint grep l-s script code jaavascript jaava pie-thon udp en-til-em r-s-hey".split(" ")
-
+starting_texts5 = "A-E-S AES hey-e-s ticipi stack udipi, reverse-engenring router switch arp forwarding routing system-call windows linux operating-system bit byte computer cookie ethernet fingerprint grep l-s script code jaavascript jaava pie-thon udp en-til-em r-s-hey".split(" ")
 def chooseOutput(output, original):
 	for choice in output:
 		if choice != original:
@@ -63,3 +62,4 @@ for starting_text in starting_texts5:
 	output = wavToText(temp_full_wav_path, os.path.join(temp_speech_path, temp_file_name + ".txt"))
 	output = chooseOutput(output, starting_text)
 	print("Sphinx thinks you said: ", output)
+	break
