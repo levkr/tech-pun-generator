@@ -27,5 +27,7 @@ To install:
   4. pip install lxml
   
   5. pip install nltk
+  
+  6. pip install scipy
     
 Change paths in the config.py file to the suitable ones.
